@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>COVID-19</title>
+
+    <link rel="stylesheet" type="text/css" href="covid19/css/dc.css" />
+    <link rel="stylesheet" type="text/css" href="covid19/css/app.css" />
+   
+    <script type="text/javascript" src="covid19/lib/d3.min.js"></script>
+    <script type="text/javascript" src="covid19/lib/crossfilter.js"></script>
+    <script type="text/javascript" src="covid19/lib/dc.js"></script>
+
+    <script type="module" src="covid19/js/shared.js"></script>
+    <script type="module" src="covid19/js/main.js"></script>
+    
+</head>
+
+<body>
+    <div id="root" class="grid">
+        
+        <div id=title-div>COVID-19</div>
+        <div id=country-title-div height="700px">Country</div>
+        <div id=state-title-div>Province</div>
+        <div id=chart-title-div></div>
+        
+        <div id=country-div></div>
+        <div id=state-div></div>
+        <div id=chart-div></div>
+        
+        <div class="team" id="chart-team"></div>
+    </div>
+</body>

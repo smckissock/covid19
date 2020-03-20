@@ -1,0 +1,17 @@
+C:\project\covid19\bin\Debug\covid19.exe.config
+C:\project\covid19\bin\Debug\covid19.exe
+C:\project\covid19\bin\Debug\covid19.pdb
+C:\project\covid19\obj\Debug\covid19.csprojAssemblyReference.cache
+C:\project\covid19\obj\Debug\covid19.csproj.CoreCompileInputs.cache
+C:\project\covid19\obj\Debug\covid19.exe
+C:\project\covid19\obj\Debug\covid19.pdb
+C:\project\covid19\Importer\bin\Debug\covid19.exe.config
+C:\project\covid19\Importer\bin\Debug\covid19.exe
+C:\project\covid19\Importer\bin\Debug\covid19.pdb
+C:\project\covid19\Importer\obj\Debug\covid19.csproj.CoreCompileInputs.cache
+C:\project\covid19\Importer\obj\Debug\covid19.exe
+C:\project\covid19\Importer\obj\Debug\covid19.pdb
+C:\project\covid19\Importer\bin\Debug\Newtonsoft.Json.dll
+C:\project\covid19\Importer\bin\Debug\Newtonsoft.Json.xml
+C:\project\covid19\Importer\obj\Debug\covid19.csproj.CopyComplete
+C:\project\covid19\Importer\obj\Debug\covid19.csprojAssemblyReference.cache
