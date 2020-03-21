@@ -75,6 +75,10 @@ function selectCountry(country) {
     drawChart(country);
 }
 
+function selectState(state) {
+    drawChart(state);
+}
+
 
 function stateBars(country) {
     const barHeight = 24;    
@@ -108,7 +112,7 @@ function stateBars(country) {
         .attr("height", barHeight - 3)
         .style("fill", "lightblue")
         .attr("cursor", "pointer")
-        .on("click", d => update(d));    
+        .on("click", d => selectState(d));    
 
     svg.selectAll("text").data(states).enter().append("text")
         .text(d => d.name + " " +  d.stats.confirmed)
@@ -150,6 +154,7 @@ function drawChart(site) {
     const yScale = d3.scaleLinear()
         .domain([maxConfirmed, 0])
         .range([0, height]);
+
 
     // Draw y axis    
     var yGroup = g.append("g")

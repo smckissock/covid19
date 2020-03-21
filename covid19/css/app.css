@@ -2,12 +2,6 @@
     font-size: 1.0em;
 }
 
-/* 
-@font-face {
-    font-family: 'burbank';
-    src: url('burbank.ttf') format('truetype');
-}  */
-
 body {
     font-family: 'Source Sans Pro', sans-serif;
     font: "rubic";
@@ -20,7 +14,7 @@ body {
         "left-margin        country-title-div  state-title-div     chart-title-div"
         "left-margin        country-div        state-div           chart-div";
     grid-template-columns: 30px 240px 240px 1000px;
-    grid-template-rows: 60px 26px auto; 
+    grid-template-rows: 60px 34px auto; 
     grid-gap: 2px 12px;
     margin: 0px;
     height: 1080px;
@@ -32,19 +26,21 @@ body {
     grid-area: title-div;
     font-weight: 700;
     font-size: 3rem;
+    opacity: 0.8;
 }
 
 #country-title-div {
     grid-area: country-title-div;
-    font-weight: 700;
-    font-size: 1.4rem;
-    overflow: auto;
+    font-weight: 600;
+    font-size: 1.5rem;
+    opacity: 0.8;
 }
 
 #state-title-div {
     grid-area: state-title-div;
-    font-weight: 700;
-    font-size: 1.4rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    opacity: 0.8;
 }
 
 #chart-title-div {
@@ -55,10 +51,12 @@ body {
 
 #country-div {
     grid-area: country-div;
+    overflow: auto;
 }
 
 #state-div {
     grid-area: state-div;
+    overflow: auto;
 }
 
 #chart-div {
@@ -70,7 +68,6 @@ body {
 
 .bar-text {
     font-size: 16px;
-    font-family: sans-serif;
     pointer-events: none;
 }
 
