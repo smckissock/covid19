@@ -1,16 +1,9 @@
 import { text, centeredText, rightText } from "./shared.js";
-
-import { countryBars, stateBars } from "./barCharts.js";
+import { siteBars } from "./barCharts.js";
 import { drawChart } from "./lineCharts.js";
 
-
-let facts;
-let countryDim;
-let cityDim;
-let dateDim;
-
-let currentDay;
-let countries;
+//let currentDay;
+//let countries;
  
 const lightBlue = '#9ecae1'
 
@@ -32,21 +25,17 @@ function init(data) {
             });
         });
     });
-
     const countries = data.countries;
 
-    countryBars(countries);
-    stateBars(countries[0]);
+    siteBars(countries, "country");
+    //stateBars(countries[0], false);
     drawChart(countries[0]);
 }    
 
+export function selectSite(site, type) {
+    if (type == "country")
+        siteBars(site, "state");
 
-export function selectCountry(country) {
-    stateBars(country);
-    drawChart(country);
-}
-
-export function selectState(state) {
-    drawChart(state);
+    drawChart(site);
 }
 
