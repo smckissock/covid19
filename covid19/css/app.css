@@ -73,3 +73,7 @@ body {
     font-family: sans-serif;
     pointer-events: none;
 }
+
+.tick {
+    font-size: 14px;
+}

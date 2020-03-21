@@ -6,7 +6,6 @@ let cityDim;
 let dateDim;
 
 let currentDay;
- 
 let countries;
  
 const lightBlue = '#9ecae1'
@@ -16,7 +15,7 @@ d3.json('covid19/data/data.json')
 
 
 function init(data) {
-    // Replace data strings with date objects
+    // Replace date strings with date objects
     data.countries.forEach(function(country) {
         country.days.forEach(function(day) {
             day.date = new Date(day.date);
@@ -123,8 +122,23 @@ function stateBars(country) {
 
 function drawChart(site) {
 
-    const width = 1000;
-    const height = 800;
+    const svgDims = { width: 1000, height: 800 }
+
+    d3.select("#line-chart")
+        .remove();
+
+    const svg = d3.select("#chart-div")
+        .append("svg")
+        .attr("id", "line-chart")
+        .attr("width", svgDims.width)
+        .attr("height", svgDims.height)
+
+    const margin = {top: 20, right: 30, bottom: 60, left: 60};
+
+    const width = +svg.attr("width") - margin.left - margin.right;
+    const height = +svg.attr("height") - margin.top - margin.bottom;
+    const g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
 
     const firstDay = d3.min(site.days, x => x.date);
     const lastDay = d3.max(site.days, x => x.date);
@@ -137,30 +151,25 @@ function drawChart(site) {
         .domain([maxConfirmed, 0])
         .range([0, height]);
 
-    d3.select("#line-chart")
-        .remove();
-    
-    const svg = d3.select("#chart-div")
-        .append("svg")
-        .attr("id", "line-chart")
-        .attr("width", width)
-        .attr("height", height)
-
-    svg.append("g")
-        .attr("transform", "translate(0," + (height-30) + ")")
-        .call(d3.axisBottom(dayScale)
-            .tickFormat(d3.timeFormat("%Y-%m-%d")));
-
-    svg.append("g")
-        .attr("transform", "translate(40,20)")
+    // Draw y axis    
+    var yGroup = g.append("g")
         .call(d3.axisLeft(yScale));
 
-    svg.selectAll("rect").data(site.days).enter().append("rect")
+    // Draw x axis - Jan 10    
+    const xGroup = g.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(dayScale)
+           .tickFormat(function(d) {
+                let func = d3.timeFormat("%b");
+                return func(d) + " " + d.getDate();   
+           }));
+
+    g.selectAll("rect").data(site.days).enter().append("rect")
         .attr("x", d => dayScale(d.date))
         .attr("width", 10)
         .attr("y", d => yScale(d.stats.confirmed))
-        .attr("height", d => (780 - yScale(d.stats.confirmed)))
-        .style("fill", "lightblue");
+        .attr("height", d => (height - yScale(d.stats.confirmed)))
+        .style("fill", "lightblue"); 
 }
 
 
