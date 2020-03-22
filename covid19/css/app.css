@@ -103,6 +103,11 @@ body {
     pointer-events: none;
 }
 
+.deaths-line {
+    stroke: grey;
+    pointer-events: none;
+}
+
 .tick {
     font-size: 14px;
 }

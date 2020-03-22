@@ -51,7 +51,7 @@ export function siteBars(sites, type) {
         .each(function (d, i) {
             rightText(formatInt(d.stats.confirmed), svg, "stat-text", 140, 20, (i * barHeight) + 16)
             rightText(formatInt(d.stats.active), svg, "stat-text", 200, 20, (i * barHeight) + 16)
-            rightText(formatInt(d.stats.deaths), svg, "stat-text", 255, 20, (i * barHeight) + 16)
+            rightText(formatInt(d.stats.deaths), svg, "stat-text", 250, 20, (i * barHeight) + 16)
         })
             //.on("mouseover", d => d3.select(this).attr("font-weight", "bold"))
         //.on("mouseout", d => d3.select(this).attr("font-weight", "normal"));

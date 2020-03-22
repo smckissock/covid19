@@ -45,7 +45,7 @@ export function drawChart(site) {
     var yGroup = g.append("g")
         .call(d3.axisLeft(yScale));
 
-    // Draw x axis - Jan 10    
+    // Draw x axis - e.g. "Jan 10"    
     const xGroup = g.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(dayScale)
@@ -54,10 +54,28 @@ export function drawChart(site) {
                 return func(d) + " " + d.getDate();   
            }));
 
+    // Bars for cumulative confirmed cases        
     g.selectAll("rect").data(site.days).enter().append("rect")
         .attr("x", d => dayScale(d.date))
         .attr("width", 10)
         .attr("y", d => yScale(d.stats.confirmed))
         .attr("height", d => (height - yScale(d.stats.confirmed)))
         .style("fill", "lightblue"); 
+
+    // Lines for cumulative deaths        
+    g.selectAll("line").data(site.days).enter().append("line")
+        .attr("x1", d => dayScale(d.date))
+        .attr("x2", d => dayScale(d.date))
+        .attr("y1", height)
+        .attr("y2", d => yScale(d.stats.deaths))
+        .attr('stroke-width', 10)
+        .classed("deaths-line", true)
+
+    // Circles for daily active cases        
+    g.selectAll("circle").data(site.days).enter().append("circle")
+        .attr("cx", d => dayScale(d.date))
+        //.attr("cy", d => height - yScale(d.stats.active))
+        .attr("cy", d => yScale(d.stats.active))
+        .attr("r", 5)
+        .style("fill", "black");
 }
