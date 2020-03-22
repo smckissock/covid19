@@ -19,10 +19,9 @@ export function siteBars(sites, type) {
         .attr("width", 300)
         .attr("height", barHeight * sites.length)
 
-    if (type == "state") {
+    if (type == "state") 
         svg.attr("id", "state-bars");
-    }
-
+    
     const xScale = d3.scaleLinear()
         .domain([0, maxConfirmed])
         .range([0, 300]);
@@ -50,8 +49,6 @@ export function siteBars(sites, type) {
         .attr("y", (d, i) => (i * barHeight) + 16)
         .classed("bar-text", true)
         .each(function (d, i) {
-            console.log(d.stats.confirmed);
-
             rightText(formatInt(d.stats.confirmed), svg, "stat-text", 140, 20, (i * barHeight) + 16)
             rightText(formatInt(d.stats.active), svg, "stat-text", 200, 20, (i * barHeight) + 16)
             rightText(formatInt(d.stats.deaths), svg, "stat-text", 255, 20, (i * barHeight) + 16)

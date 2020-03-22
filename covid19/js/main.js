@@ -25,8 +25,7 @@ function init(data) {
     const countries = data.countries;
 
     siteBars(countries, "country");
-    //stateBars(countries[0], false);
-    drawChart(countries[0]);
+    selectSite(countries[0], "country"); 
 }    
 
 export function selectSite(site, type) {
@@ -34,5 +33,20 @@ export function selectSite(site, type) {
         siteBars(site, "state");
 
     drawChart(site);
+    drawTitles(site, type);
+}
+
+
+function drawTitles(site, type) {
+    d3.select("#site-title").remove();
+
+    const svg = d3.select("#site-title-div")
+        .append("svg")
+        .attr("width", 1100)
+        .attr("height", 60)
+        .attr("id", "site-title");
+
+    text(site.name, svg, "site-title-text", 30, 52);    
+
 }
 

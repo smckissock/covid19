@@ -6,7 +6,7 @@ export function drawChart(site) {
 
 
     function drawLabels() {
-        text("ERER", svg, "bar-text", margin.left + 20, 20)
+        text("Johns Hopkins", svg, "source-text", margin.left + 30, 30)
     }
 
     const svgDims = { width: 1000, height: 940 }

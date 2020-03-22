@@ -8,7 +8,7 @@ export function text(text, svg, style, x, y, id = "") {
             .attr("y", y)
             .attr("pointer-events", "none")
             .text(text)
-            //.classed(style, true)
+            .classed(style, true)
 
     // Give it an id, if provided    
     if (id != "")
