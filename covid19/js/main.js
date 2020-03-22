@@ -1,9 +1,6 @@
 import { text, centeredText, rightText } from "./shared.js";
 import { siteBars } from "./barCharts.js";
 import { drawChart } from "./lineCharts.js";
-
-//let currentDay;
-//let countries;
  
 const lightBlue = '#9ecae1'
 

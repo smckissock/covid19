@@ -1,9 +1,6 @@
 
-
 // Writes text to an svg, with a css class and optional id
 export function text(text, svg, style, x, y, id = "") {  
-
-    //const g = svg.append("g");
 
     const textElm = 
         svg.append("text")

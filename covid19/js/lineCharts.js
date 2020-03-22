@@ -1,8 +1,15 @@
 
+import { text, centeredText, rightText } from "./shared.js";
+
 
 export function drawChart(site) {
 
-    const svgDims = { width: 1000, height: 800 }
+
+    function drawLabels() {
+        text("ERER", svg, "bar-text", margin.left + 20, 20)
+    }
+
+    const svgDims = { width: 1000, height: 940 }
 
     d3.select("#line-chart")
         .remove();
@@ -14,6 +21,8 @@ export function drawChart(site) {
         .attr("height", svgDims.height)
 
     const margin = {top: 20, right: 30, bottom: 60, left: 60};
+
+    drawLabels();
 
     const width = +svg.attr("width") - margin.left - margin.right;
     const height = +svg.attr("height") - margin.top - margin.bottom;
