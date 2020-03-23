@@ -56,6 +56,9 @@ namespace covid19 {
             City = city;
             MetricType = metricType;
             Count = count;
+
+            if (Count == "")
+                Count = "0";
         }
 
         public string MetricTypeId() {

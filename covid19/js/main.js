@@ -3,6 +3,7 @@ import { siteBars } from "./barCharts.js";
 import { drawChart } from "./lineCharts.js";
  
 const lightBlue = '#9ecae1'
+let countries;
 
 d3.json('covid19/data/data.json')
     .then(data => init(data));
@@ -22,7 +23,7 @@ function init(data) {
             });
         });
     });
-    const countries = data.countries;
+    countries = data.countries;
 
     siteBars(countries, "country");
     selectSite(countries[0], "country"); 
@@ -37,6 +38,22 @@ export function selectSite(site, type) {
 }
 
 
+// Return "country" or "country / state"
+export function siteName(site) {
+    if (site.states)
+        return site.name;
+    
+    let name;     
+    countries.forEach(function(country) {
+        country.states.forEach(function (state) {
+            if (state.name.valueOf() == site.name.valueOf())
+                name = country.name + " / " + state.name;
+        });
+    });
+    return name;
+} 
+
+
 function drawTitles(site, type) {
     d3.select("#site-title").remove();
 
@@ -46,7 +63,6 @@ function drawTitles(site, type) {
         .attr("height", 60)
         .attr("id", "site-title");
 
-    text(site.name, svg, "site-title-text", 30, 52);    
-
+    text(siteName(site), svg, "site-title-text", 30, 52);    
 }
 
