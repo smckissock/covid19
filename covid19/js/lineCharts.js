@@ -4,7 +4,6 @@ import { text, centeredText, rightText } from "./shared.js";
 
 export function drawChart(site) {
 
-
     function drawLabels() {
         text("Johns Hopkins", svg, "source-text", margin.left + 30, 30)
     }

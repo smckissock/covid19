@@ -92,10 +92,21 @@ body {
     pointer-events: none;
 }
 
+.date-title-text {
+    font-size: 1rem;
+    font-weight: 600;
+    pointer-events: none;
+}
+
 
 .site-bar {
     fill: #E8E8E8;
     cursor: pointer;
+}
+
+.site-bar-highlight {
+    stroke-width: 2;
+    stroke: black;
 }
 
 .site-line {

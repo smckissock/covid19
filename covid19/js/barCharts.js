@@ -33,7 +33,13 @@ export function siteBars(sites, type) {
         .attr("y", (d, i) => (i * barHeight))
         .attr("height", barHeight - 3)
         .classed("site-bar", true)
-        .on("click", d => selectSite(d, type));  
+        //.attr("stroke-width", 2)
+        //.attr("stroke", "black")
+        .on("click", d => selectSite(d, type)) 
+        .on("mouseover", function() {
+            d3.select(this).classed('site-bar-highlight', true)})   
+        .on("mouseout", function() {
+            d3.select(this).classed('site-bar-highlight', false)})
     
     svg.selectAll("line").data(sites).enter().append("line")
         .attr("x1", 0)

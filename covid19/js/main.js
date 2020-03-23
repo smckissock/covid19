@@ -4,6 +4,7 @@ import { drawChart } from "./lineCharts.js";
  
 const lightBlue = '#9ecae1'
 let countries;
+export let lastDay = "";
 
 d3.json('covid19/data/data.json')
     .then(data => init(data));
@@ -24,6 +25,9 @@ function init(data) {
         });
     });
     countries = data.countries;
+
+    countries.find(d => d.name == "US").name = "United States";
+    lastDay = d3.max(countries[0].days, x => x.date);
 
     siteBars(countries, "country");
     selectSite(countries[0], "country"); 
@@ -64,5 +68,6 @@ function drawTitles(site, type) {
         .attr("id", "site-title");
 
     text(siteName(site), svg, "site-title-text", 30, 52);    
+    text(lastDay, svg, "date-title-text", 30, 72);    
 }
 
