@@ -11,7 +11,7 @@ namespace covid19 {
 
         //static string sqlErrorPath = @"C:\Fortnite\FortniteJson\Sql Error\";
 
-        static string db = "covid19";
+        static string db = "covid";
 
         //private static string connectionString = "Server=SCOTT-PC\\SQLExpress;Database=" + db + ";Trusted_Connection=True;";
         //private static string connectionString =   "Server=PC\\SQLExpress;Database=" + db + ";Trusted_Connection=True;";

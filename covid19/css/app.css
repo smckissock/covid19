@@ -105,7 +105,8 @@ body {
 }
 
 .site-bar-highlight {
-    stroke-width: 2;
+    stroke-width: 2
+    ;
     stroke: black;
 }
 

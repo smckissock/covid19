@@ -57,7 +57,7 @@ export function drawChart(site) {
     g.selectAll("rect").data(site.days).enter().append("rect")
         .attr("x", d => dayScale(d.date))
         .attr("width", 10)
-        .attr("y", d => yScale(d.stats.confirmed))
+        .attr("y", d => yScale(d.stats.confirmed) - 1)
         .attr("height", d => (height - yScale(d.stats.confirmed)))
         .style("fill", "lightblue"); 
 

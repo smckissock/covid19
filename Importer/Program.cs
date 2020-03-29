@@ -13,7 +13,7 @@ namespace covid19 {
 
         static void Main(string[] args) {
             Import.Run();
-            MakeJson.Run();
+            //MakeJson.Run();
             
             Console.WriteLine("DONE");
             Console.Read();
